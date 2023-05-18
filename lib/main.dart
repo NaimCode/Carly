@@ -3,6 +3,7 @@ import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/login_screen.dart';
 import 'package:app/screens/profile_screen.dart';
 import 'package:app/screens/splash_screen.dart';
+import 'package:app/widgets/main_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,6 +48,12 @@ class MainApp extends HookConsumerWidget {
             name: "/profile",
             page: () => const ProfileScreen(),
             middlewares: [IsLogged(ref)]),
+        GetPage(
+            name: "/features/:menu",
+            page: () => MainLayout(
+                  menu: Get.parameters["menu"]!,
+                ),
+            middlewares: [IsLogged(ref), HasNav()]),
       ],
     );
   }
@@ -66,6 +73,18 @@ class IsLogged extends GetMiddleware {
     }
     if (user == null) {
       return const RouteSettings(name: "/login");
+    }
+    return null;
+  }
+}
+
+class HasNav extends GetMiddleware {
+  @override
+  RouteSettings? redirect(String? route) {
+    if (route == "/features") {
+      if (Get.parameters["menu"] == null) {
+        return const RouteSettings(name: "/");
+      }
     }
     return null;
   }
