@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "288316057311",
+    "project_id": "illyass-app",
+    "storage_bucket": "illyass-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288316057311:android:5cce70e5032d3f4f3e2b6a",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288316057311-bl6qnnhdfufbnp0vqt278lik91fvk1kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJMuE5nDbfEyxKX08Y0hynBUJUoBJz08g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288316057311-bl6qnnhdfufbnp0vqt278lik91fvk1kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
