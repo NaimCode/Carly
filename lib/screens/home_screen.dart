@@ -36,7 +36,8 @@ class HomeScreen extends HookConsumerWidget {
                         elevation: 7,
                         child: InkWell(
                           onTap: () {
-                            Get.toNamed('/features/${e.route.toLowerCase()}');
+                            ref.read(currentNavProvider.notifier).change(e);
+                            Get.toNamed('/features');
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

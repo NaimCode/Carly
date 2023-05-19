@@ -49,11 +49,9 @@ class MainApp extends HookConsumerWidget {
             page: () => const ProfileScreen(),
             middlewares: [IsLogged(ref)]),
         GetPage(
-            name: "/features/:menu",
-            page: () => MainLayout(
-                  menu: Get.parameters["menu"]!,
-                ),
-            middlewares: [IsLogged(ref), HasNav()]),
+            name: "/features",
+            page: () => const MainLayout(),
+            middlewares: [IsLogged(ref)]),
       ],
     );
   }
@@ -73,18 +71,6 @@ class IsLogged extends GetMiddleware {
     }
     if (user == null) {
       return const RouteSettings(name: "/login");
-    }
-    return null;
-  }
-}
-
-class HasNav extends GetMiddleware {
-  @override
-  RouteSettings? redirect(String? route) {
-    if (route == "/features") {
-      if (Get.parameters["menu"] == null) {
-        return const RouteSettings(name: "/");
-      }
     }
     return null;
   }

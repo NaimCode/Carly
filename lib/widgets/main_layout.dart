@@ -1,12 +1,13 @@
+import 'package:app/screens/phone_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../providers/common.dart';
+import '../screens/radio_screen.dart';
 
 final _bodies = [
-  const Placeholder(),
-  const Placeholder(),
+  const RadioScreen(),
+  const PhoneScreen(),
   const Placeholder(),
   const Placeholder(),
   const Placeholder(),
@@ -14,14 +15,12 @@ final _bodies = [
 ];
 
 class MainLayout extends HookConsumerWidget {
-  const MainLayout({super.key, required this.menu});
-  final String menu;
+  const MainLayout({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final menus = ref.watch(navigationProvider);
-    final current = menus.firstWhere(
-        (element) => element.title.toLowerCase() == menu.toLowerCase());
+    final current = ref.watch(currentNavProvider);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -40,20 +39,32 @@ class MainLayout extends HookConsumerWidget {
         child: _bodies[
             menus.indexWhere((element) => element.route == current.route)],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          fixedColor: Colors.white,
-          currentIndex:
-              menus.indexWhere((element) => element.route == current.route),
-          onTap: (index) {
-            Get.toNamed('/features/${menus[index].route.toLowerCase()}');
-          },
-          items: ref
-              .read(navigationProvider)
-              .map((e) => BottomNavigationBarItem(
-                    icon: Icon(e.icon),
-                    label: e.title,
-                  ))
-              .toList()),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        child: BottomNavigationBar(
+            //  fixedColor: Colors.white,
+            elevation: 5,
+            type: BottomNavigationBarType.shifting,
+            backgroundColor: Colors.white,
+            useLegacyColorScheme: true,
+            unselectedItemColor: Colors.white.withOpacity(.5),
+            selectedItemColor: Colors.white,
+            currentIndex:
+                menus.indexWhere((element) => element.route == current.route),
+            onTap: (index) {
+              ref.read(currentNavProvider.notifier).change(menus[index]);
+            },
+            items: ref
+                .read(navigationProvider)
+                .map((e) => BottomNavigationBarItem(
+                      icon: Icon(e.icon),
+                      label: e.title,
+                    ))
+                .toList()),
+      ),
     );
   }
 }

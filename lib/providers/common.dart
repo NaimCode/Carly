@@ -18,3 +18,14 @@ final navigationProvider = Provider<List<NavigationItem>>((ref) {
     NavigationItem(title: "Parametre", route: "settings", icon: Icons.settings),
   ];
 });
+
+class CurrentNav extends StateNotifier<NavigationItem> {
+  CurrentNav(NavigationItem nav) : super(nav);
+
+  void change(NavigationItem item) {
+    state = item;
+  }
+}
+
+final currentNavProvider = StateNotifierProvider<CurrentNav, NavigationItem>(
+    (ref) => CurrentNav(ref.watch(navigationProvider).first));
