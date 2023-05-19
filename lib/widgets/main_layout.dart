@@ -9,7 +9,7 @@ final _bodies = [
   const RadioScreen(),
   const PhoneScreen(),
   const Placeholder(),
-  const Placeholder(),
+  const PhoneScreen(),
   const Placeholder(),
   const Placeholder(),
 ];
@@ -21,6 +21,7 @@ class MainLayout extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final menus = ref.watch(navigationProvider);
     final current = ref.watch(currentNavProvider);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
