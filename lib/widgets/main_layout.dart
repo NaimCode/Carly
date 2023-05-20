@@ -9,7 +9,7 @@ import '../screens/radio_screen.dart';
 final _bodies = [
   const RadioScreen(),
   const PhoneScreen(),
-  const Placeholder(),
+  // const Placeholder(),
   const PhoneScreen(),
   const Placeholder(),
   const SettingsScreen(),

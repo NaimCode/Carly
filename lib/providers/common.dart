@@ -12,7 +12,7 @@ final navigationProvider = Provider<List<NavigationItem>>((ref) {
   return [
     NavigationItem(title: "Radio", route: "radio", icon: Icons.radio),
     NavigationItem(title: "Musique", route: "musique", icon: Icons.music_note),
-    NavigationItem(title: "Clim", route: "clim", icon: Icons.air),
+    //  NavigationItem(title: "Clim", route: "clim", icon: Icons.air),
     NavigationItem(title: "Phone", route: "phone", icon: Icons.phone),
     NavigationItem(title: "Carte", route: "map", icon: Icons.map_outlined),
     NavigationItem(title: "Parametre", route: "settings", icon: Icons.settings),
