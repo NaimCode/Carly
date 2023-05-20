@@ -29,3 +29,18 @@ class CurrentNav extends StateNotifier<NavigationItem> {
 
 final currentNavProvider = StateNotifierProvider<CurrentNav, NavigationItem>(
     (ref) => CurrentNav(ref.watch(navigationProvider).first));
+
+final settingsNavigationProvider = Provider<List<NavigationItem>>((ref) {
+  return [
+    NavigationItem(title: "Pneus", route: "pneus", icon: Icons.tire_repair),
+    NavigationItem(
+        title: "Autonomie", route: "autonomie", icon: Icons.battery_2_bar),
+    NavigationItem(
+        title: "Climatisation", route: "climatisation", icon: Icons.thermostat),
+    NavigationItem(title: "Portes", route: "portes", icon: Icons.lock),
+  ];
+});
+
+final currentSettingsNavProvider =
+    StateNotifierProvider<CurrentNav, NavigationItem>(
+        (ref) => CurrentNav(ref.watch(settingsNavigationProvider).first));

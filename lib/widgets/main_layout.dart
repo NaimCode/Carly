@@ -1,4 +1,5 @@
 import 'package:app/screens/phone_screen.dart';
+import 'package:app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,7 +12,7 @@ final _bodies = [
   const Placeholder(),
   const PhoneScreen(),
   const Placeholder(),
-  const Placeholder(),
+  const SettingsScreen(),
 ];
 
 class MainLayout extends HookConsumerWidget {

@@ -24,6 +24,14 @@ class SplashScreen extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.bottomRight,
                   children: [
+                    const Positioned(
+                        top: 30,
+                        left: 30,
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.white,
+                          backgroundImage: AssetImage("assets/logo.png"),
+                        )),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 30),
