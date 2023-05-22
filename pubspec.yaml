@@ -17,6 +17,7 @@ dependencies:
   flutter_hooks: ^0.18.6
   flutter_radio_player: ^2.0.2
   fluttercontactpicker: ^4.7.0
+  geolocator: ^9.0.2
   get: ^4.6.5
   google_fonts: ^4.0.4
   google_maps_flutter: ^2.2.6

@@ -1,3 +1,4 @@
+import 'package:app/screens/map_screen.dart';
 import 'package:app/screens/phone_screen.dart';
 import 'package:app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ final _bodies = [
   const PhoneScreen(),
   // const Placeholder(),
   const PhoneScreen(),
-  const Placeholder(),
+  const MapScreen(),
   const SettingsScreen(),
 ];
 
