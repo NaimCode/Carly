@@ -113,7 +113,7 @@ final markersProvider = Provider((ref) {
 final distanceProvider = Provider((ref) {
   final location = ref.watch(posProvider);
   final destination = ref.watch(destinataireProvider);
-  if (location == null || destination == null) return null;
+  if (location == null || destination == null) return 0;
   return Geolocator.distanceBetween(location.latitude, location.longitude,
       destination.latitude, destination.longitude);
 });
