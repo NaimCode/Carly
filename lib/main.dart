@@ -1,6 +1,7 @@
 import 'package:app/providers/auth_provider.dart';
 import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/login_screen.dart';
+import 'package:app/screens/music_item_screen.dart';
 import 'package:app/screens/profile_screen.dart';
 import 'package:app/screens/splash_screen.dart';
 import 'package:app/widgets/main_layout.dart';
@@ -51,6 +52,10 @@ class MainApp extends HookConsumerWidget {
         GetPage(
             name: "/features",
             page: () => const MainLayout(),
+            middlewares: [IsLogged(ref)]),
+        GetPage(
+            name: "/music",
+            page: () => MusicItemScreen(path: Get.arguments),
             middlewares: [IsLogged(ref)]),
       ],
     );

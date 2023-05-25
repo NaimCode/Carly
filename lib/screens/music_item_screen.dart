@@ -3,27 +3,42 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
+import '../providers/music_provider.dart';
 import '../providers/radio_provider.dart';
 
-class RadioScreen extends HookConsumerWidget {
-  const RadioScreen({super.key});
+class MusicItemScreen extends HookConsumerWidget {
+  const MusicItemScreen({super.key, required this.path});
+  final String path;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final radio = ref.watch(radioPlayerProvider);
+    final radio = ref.watch(musicPlayerProvider);
     final isPlaying = useStream(radio.isPlaying);
     final isBuffering = useStream(radio.isBuffering);
     final volume = useStream(radio.volume);
 
+    //after widget built
+    // ref.read(musicPlayerProvider.notifier).changeSong(path);
+
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Music"),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "BBC Radio",
-              style: Theme.of(context).textTheme.headlineMedium,
+            Center(
+              child: SizedBox(
+                width: 500,
+                child: Text(
+                  path.split("/").last.split(".mp3").first,
+                  style: Theme.of(context).textTheme.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
             Expanded(
               child: Stack(

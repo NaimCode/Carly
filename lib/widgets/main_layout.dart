@@ -1,4 +1,5 @@
 import 'package:app/screens/map_screen.dart';
+import 'package:app/screens/music_screen.dart';
 import 'package:app/screens/phone_screen.dart';
 import 'package:app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ import '../screens/radio_screen.dart';
 
 final _bodies = [
   const RadioScreen(),
-  const PhoneScreen(),
+  const MusicScreen(),
   // const Placeholder(),
   const PhoneScreen(),
   const MapScreen(),

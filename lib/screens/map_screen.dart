@@ -54,7 +54,7 @@ class MapScreen extends HookConsumerWidget {
                   ),
                   Visibility(
                       visible: distance == null ? false : true,
-                      child: Chip(label: Text("${distance!.floor() / 100}Km")))
+                      child: Chip(label: Text("${distance.floor() / 100}Km")))
                 ],
               ),
       ),
