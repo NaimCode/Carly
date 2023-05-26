@@ -1,3 +1,4 @@
+import 'package:app/providers/common.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -22,6 +23,14 @@ class PortesScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final doors = ref.watch(doorsProvider);
+    ref.listen(doorsProvider, (pre, p) {
+      if (p.contains(false)) {
+        sendNotification(
+          "Attention",
+          "Les portes de votre véhicule sont ouvertes",
+        );
+      }
+    });
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: Center(

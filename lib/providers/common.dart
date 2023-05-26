@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -44,3 +45,13 @@ final settingsNavigationProvider = Provider<List<NavigationItem>>((ref) {
 final currentSettingsNavProvider =
     StateNotifierProvider<CurrentNav, NavigationItem>(
         (ref) => CurrentNav(ref.watch(settingsNavigationProvider).first));
+
+void sendNotification(String title, String body) async {
+  Get.snackbar(title, body,
+      snackPosition: SnackPosition.TOP,
+      backgroundColor: Colors.blue,
+      colorText: Colors.white,
+      isDismissible: true,
+      shouldIconPulse: true,
+      duration: const Duration(seconds: 20));
+}
