@@ -2,6 +2,7 @@ import 'package:app/screens/map_screen.dart';
 import 'package:app/screens/music_screen.dart';
 import 'package:app/screens/phone_screen.dart';
 import 'package:app/screens/settings_screen.dart';
+import 'package:app/screens/siege_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,6 +13,7 @@ final _bodies = [
   const RadioScreen(),
   const MusicScreen(),
   // const Placeholder(),
+  const SiegeScreen(),
   const PhoneScreen(),
   const MapScreen(),
   const SettingsScreen(),

@@ -57,10 +57,10 @@ class MusicItemScreen extends HookConsumerWidget {
                                 // radio.isPlaying.data
                                 isPlaying.data == true
                                     ? ref
-                                        .read(radioPlayerProvider.notifier)
+                                        .read(musicPlayerProvider.notifier)
                                         .pause()
                                     : ref
-                                        .read(radioPlayerProvider.notifier)
+                                        .read(musicPlayerProvider.notifier)
                                         .play();
                               },
                               icon: AnimatedIcon(
