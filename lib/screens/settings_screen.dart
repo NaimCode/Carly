@@ -1,19 +1,22 @@
 import 'package:app/providers/common.dart';
 import 'package:app/screens/settings/autonomie_screen.dart';
-import 'package:app/screens/settings/clim_screen.dart';
+import 'package:app/screens/settings/fenetre_screen.dart';
 import 'package:app/screens/settings/pneu_screen.dart';
 import 'package:app/screens/settings/portes_screen.dart';
+import 'package:app/screens/siege_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final _bodies = [
   const PneusScreen(),
+
   //autonomie
   const AutonomieScreen(),
   //climatisation
-  const ClimScreen(),
+  const SiegeScreen(),
   //portes
   const PortesScreen(),
+  const FenetreScreen()
 ];
 
 class SettingsScreen extends HookConsumerWidget {
@@ -32,15 +35,21 @@ class SettingsScreen extends HookConsumerWidget {
               children: menus.map((e) {
                 final index = menus.indexOf(e);
                 return ListTile(
+                  dense: true,
                   selected: index ==
                       menus.indexWhere(
                           (element) => element.route == current.route),
                   selectedTileColor: Colors.white.withOpacity(.2),
-                  leading: Icon(e.icon),
-                  title: Text(e.title),
+                  leading: Icon(
+                    e.icon,
+                    size: 20,
+                  ),
+                  title: Text(e.title, style: const TextStyle(fontSize: 12)),
                   onTap: () {
                     ref.read(currentSettingsNavProvider.notifier).change(e);
                   },
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 );
               }).toList()),
         ),

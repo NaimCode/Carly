@@ -49,7 +49,7 @@ class SiegeScreen extends HookConsumerWidget {
               ),
             )),
         Positioned(
-            right: 100,
+            right: 20,
             child: RotatedBox(
               quarterTurns: 3,
               child: Center(

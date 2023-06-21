@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../widgets/car.dart';
-
 class TempNotifier extends StateNotifier<int> {
   TempNotifier() : super(26);
 
@@ -50,7 +48,7 @@ class ClimScreen extends HookConsumerWidget {
                     icon: const Icon(Icons.arrow_downward)),
               ],
             )),
-            const Expanded(child: Car())
+            Expanded(child: Image.asset("assets/clim.png"))
           ],
         )));
   }

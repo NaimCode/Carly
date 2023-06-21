@@ -13,7 +13,8 @@ final navigationProvider = Provider<List<NavigationItem>>((ref) {
   return [
     NavigationItem(title: "Radio", route: "radio", icon: Icons.radio),
     NavigationItem(title: "Musique", route: "musique", icon: Icons.music_note),
-    NavigationItem(title: "Siège", route: "siege", icon: Icons.chair_sharp),
+    NavigationItem(
+        title: "Climatisation", route: "climatisation", icon: Icons.thermostat),
     NavigationItem(title: "Phone", route: "phone", icon: Icons.phone),
     NavigationItem(title: "Carte", route: "map", icon: Icons.map_outlined),
     NavigationItem(title: "Parametre", route: "settings", icon: Icons.settings),
@@ -36,9 +37,10 @@ final settingsNavigationProvider = Provider<List<NavigationItem>>((ref) {
     NavigationItem(title: "Pneus", route: "pneus", icon: Icons.tire_repair),
     NavigationItem(
         title: "Autonomie", route: "autonomie", icon: Icons.battery_2_bar),
-    NavigationItem(
-        title: "Climatisation", route: "climatisation", icon: Icons.thermostat),
+    NavigationItem(title: "Siège", route: "siege", icon: Icons.chair_sharp),
     NavigationItem(title: "Portes", route: "portes", icon: Icons.lock),
+    NavigationItem(
+        title: "Fenetre", route: "fenetre", icon: Icons.window_outlined),
   ];
 });
 
