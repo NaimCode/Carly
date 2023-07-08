@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../providers/bluetooth_provider.dart';
 import '../providers/common.dart';
 
 class HomeScreen extends HookConsumerWidget {
@@ -14,6 +15,13 @@ class HomeScreen extends HookConsumerWidget {
         automaticallyImplyLeading: false,
         title: const Text('Home'),
         actions: [
+          ElevatedButton.icon(
+              onPressed: () {
+                Get.toNamed("/bluetooth");
+              },
+              icon: const Icon(Icons.drive_eta),
+              label: Text(ref.read(bluetoothProvider.notifier).device?.name ??
+                  "Pas de nom")),
           IconButton(
               tooltip: "Profil",
               icon: const Icon(Icons.person),

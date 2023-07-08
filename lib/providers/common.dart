@@ -17,7 +17,8 @@ final navigationProvider = Provider<List<NavigationItem>>((ref) {
         title: "Climatisation", route: "climatisation", icon: Icons.thermostat),
     NavigationItem(title: "Phone", route: "phone", icon: Icons.phone),
     NavigationItem(title: "Carte", route: "map", icon: Icons.map_outlined),
-    NavigationItem(title: "Parametre", route: "settings", icon: Icons.settings),
+    NavigationItem(
+        title: "Apropos du vehicule", route: "settings", icon: Icons.settings),
   ];
 });
 

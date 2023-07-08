@@ -1,4 +1,5 @@
 import 'package:app/providers/auth_provider.dart';
+import 'package:app/screens/bluetoothPage.dart';
 import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/login_screen.dart';
 import 'package:app/screens/music_item_screen.dart';
@@ -37,6 +38,7 @@ class MainApp extends HookConsumerWidget {
       themeMode: ThemeMode.dark,
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/bluetooth', page: () => const DiscoveryPage()),
         GetPage(
             name: "/login",
             page: () => const LoginScreen(),
